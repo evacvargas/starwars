@@ -1,12 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, {useState, useEffect} from "react";
+import React from "react";
 import ImgProfile from "../../../public/yoda.jpg";
 
 
 export default function CharacterCard({ character }) {
+
+  const handleCardClick = () => {
+    localStorage.setItem("selectedCharacter", JSON.stringify(character));
+  };
+
     return (
-      <div>
+    <div onClick={handleCardClick} style={{ cursor: "pointer" }}>
         <Link 
           href={`/characters/details`} 
           role="button">

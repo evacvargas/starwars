@@ -12,30 +12,26 @@ export default function CharacterMiniCard({url}) {
     const fetchData = async () => {
       const characterData = await fetchCharacter(url);
       setCharacterData(characterData);
-      localStorage.setItem("characterData", JSON.stringify(characterData));
     };
 
     fetchData();
   }, [url]);
 
+  const handleCardClick = () => {
+    localStorage.setItem("selectedCharacter", JSON.stringify(character));
+  };
+
   if (!character) {
     return <div>Loading...</div>;
   }
 
-    return (
-      <div>
-        <Link
-          href={`/characters/details`} 
-          role="button">
-          <h1>{character?.name}</h1>
-          <h1>{character?.url}</h1>
-          <Image
-            src={ImgProfile}
-            alt={"profile"}
-            height={50}
-            width={70}
-          />
-        </Link>
-      </div>
-    )
-  }
+  return (
+    <div onClick={handleCardClick} style={{ cursor: "pointer" }}>
+      <Link href={`/characters/details`}>
+        <h1>{character?.name}</h1>
+        <h1>{character?.url}</h1>
+        <Image src={ImgProfile} alt={"profile"} height={50} width={70} />
+      </Link>
+    </div>
+  );
+}

@@ -6,12 +6,11 @@ export default function CharactersPage() {
   const [characterData, setCharacterData] = useState(null);
 
   useEffect(() => {
-    const storedCharacterData = localStorage.getItem("characterData");
+    const storedCharacterData = localStorage.getItem("selectedCharacter");
     if (storedCharacterData) {
       setCharacterData(JSON.parse(storedCharacterData));
     }
   }, []);
-
 
   return (
     <div>
