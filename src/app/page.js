@@ -1,14 +1,15 @@
 'use client'
-import React, {useState} from "react";
+import React from "react";
 import Image from 'next/image';
 import Wallpaper from '../../public/backg.jpg'
 import Link from "next/link";
+import 'tailwindcss/tailwind.css'
 
 
 export default function Landing() {
   return (
     <>
-      <div className="min-h-screen flex flex-col items-center justify-center bg-cover">
+      <div className="min-h-screen flex flex-col items-center justify-center">
           <Image
           src={Wallpaper}
           alt="wallpaper"

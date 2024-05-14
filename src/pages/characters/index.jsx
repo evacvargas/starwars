@@ -1,17 +1,27 @@
+import CharacterCard from "@/components/Characters/CharacterCard";
+import { fetchAllCharacters } from "@/services/apiService";
 import React from "react";
+// import 'tailwindcss/tailwind.css'
 
-
-export default function Page({data}) {
+export default function Characters({data}) {
+  console.log("data", data)
   return (
-    <h1>
-      ESTAMOS EN PERSONAJES
-    </h1>
+    <>
+    <h1>vista de listado de personajes</h1>
+      <div className="flex">
+      {data.results.map((character, index) => (
+          <CharacterCard 
+            key={index}
+            character={character}
+          />
+        ))}
+      </div>
+    </>
   )
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://swapi.dev/api/films/');
-  const data = await res.json();
+  const data = await fetchAllCharacters();
 
   return {
     props: {
