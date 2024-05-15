@@ -26,11 +26,15 @@ export default function CharacterMiniCard({url}) {
   }
 
   return (
-    <div onClick={handleCardClick} style={{ cursor: "pointer" }}>
-      <Link href={`/characters/details`}>
-        <h1>{character?.name}</h1>
-        <h1>{character?.url}</h1>
-        <Image src={ImgProfile} alt={"profile"} height={50} width={70} />
+    <div onClick={handleCardClick} style={{ cursor: "pointer" }} className="bg-white flex rounded-lg h-64 transition-transform transform-gpu hover:-translate-y-1">
+      <Link href={`/characters/details`} className="w-full">
+        <Image 
+        src={ImgProfile} 
+        alt={"profile"} 
+        className="relative h-4/5 w-full rounded-t-lg"
+        loading="lazy"
+        />
+        <h1 className="text-blue-900 font-bold" style={{ lineHeight: "50px" }}>{character?.name}</h1>
       </Link>
     </div>
   );

@@ -1,10 +1,12 @@
 import FilmCard from "@/components/Movies/FilmCard";
 import { fetchFilmData } from "@/services/apiService";
 import React from "react";
+import Wallpaper from "../../../public/bgPages.jpeg";
 
 export default function Home({ data }) {
   return (
-    <div className="bg-black px-20 py-20 grid grid-flow-row gap-8 text-neutral-600 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="bg-black px-20 py-20 grid grid-flow-row gap-8 text-neutral-600 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"      
+      style={{ backgroundImage: `url(${Wallpaper.src})` }}>
       {data.results.map((film, index) => (
         <FilmCard
           key={film.episode_id}

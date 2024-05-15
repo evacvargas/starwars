@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import Img from "../../../public/films.jpg";
+import Img from "../../../public/films.jpeg";
 import Link from "next/link";
 import "tailwindcss/tailwind.css";
 
@@ -17,6 +17,7 @@ export default function FilmCard({ title, episode, id }) {
         width={90}
         alt="film"
         className="relative h-70 w-full rounded-t-lg"
+        loading="lazy"
       />
       <div className="flex flex-col gap-2 p-6">
         <h1 className="text-lg font-bold text-center">{title}</h1>
