@@ -1,7 +1,7 @@
-// pages/characters/index.js
 import { useEffect, useState } from "react";
 import CharacterDetails from "@/components/Characters/CharacterDetails";
 import "tailwindcss/tailwind.css";
+import Wallpaper from "../../../../public/bgPages.jpeg";
 
 
 export default function CharactersPage() {
@@ -16,7 +16,7 @@ export default function CharactersPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"  style={{ backgroundImage: `url(${Wallpaper.src})` }}>
       <div className="p-10">
         <CharacterDetails character={characterData} />
       </div>

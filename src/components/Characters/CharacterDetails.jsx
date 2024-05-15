@@ -1,23 +1,22 @@
 import React from "react";
 import Img from "../../../public/characterDetails.jpeg";
 import Image from "next/image";
-import 'tailwindcss/tailwind.css'
+import 'tailwindcss/tailwind.css';
+
 
 export default function CharacterDetails({  character }) {
-  console.log("veamos", character)
     return (
       <>
-        <div>
-          <div className="bg-white p-10">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-center">
             <Image
             src={Img}
             alt="img"
-            className="rounded-t-lg"
+            className="rounded-lg animate-pulse"
             loading="lazy"
+            width={600}
             />
-          </div>
 
-          <div className="rounded-t-none rounded-b-lg bg-slate-500 w-full p-4 capitalize cursor-pointer gap-5 justify-center">
+          <div className="rounded-t-none rounded-b-lg w-full p-4 capitalize gap-5 justify-center">
             {character?.name && character.name !== "n/a" && character.name !== "unknown" && (
             <h1 className="text-gray-400 font-bold text-4xl md:text-6xl lg:text-8xl w-full drop-shadow-lg">{character.name}</h1>
             )}

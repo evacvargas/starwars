@@ -14,11 +14,14 @@ export default function FilmDetails({ data }) {
         style={{ backgroundImage: `url(${Wallpaper.src})` }}
       >
         <div className="flex flex-col gap-2 text-center text-white">
-          <h1 className="text-5xl">{data?.title}</h1>
-          <h2 className="text-5xl animate-bounce transition duration-500 ease-in-out font-semibold">
+          <h1 className="text-5xl md:text-5xl lg:text-6xl">{data?.title}</h1>
+          <h2 className="text-5xl md:text-5xl lg:text-6xl animate-bounce transition duration-500 ease-in-out font-semibold">
             {data?.episode_id}
           </h2>
-          <h2>{data?.director}</h2>
+
+          <div className="bg-gray-700 text-white px-3 py-1 rounded-full font-semibold text-sm md:text-base lg:text-lg m-auto">
+            <h2>Director: {data?.director}</h2>
+          </div>
         </div>
 
         <div className="w-full p-5 text-center">
@@ -45,7 +48,7 @@ function CustomNavigation() {
   const swiper = useSwiper();
   return (
     <>
-    <div className="flex justify-center font-bold gap-10 text-white m-3 cursor-pointer">
+    <div className="flex justify-center font-bold gap-10 text-white m-3 cursor-pointer text-4xl">
       <button onClick={() => swiper.slidePrev()}>Prev</button>
       <button onClick={() => swiper.slideNext()}>Next</button>
     </div>
