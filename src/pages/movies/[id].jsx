@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { fetchFilmDetails } from "@/services/apiService";
 import CharacterMiniCard from "@/components/Characters/CharacterMiniCard";
 import Wallpaper from "../../../public/bgPages.jpeg";
@@ -6,6 +7,8 @@ import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import "swiper/css";
 
 export default function FilmDetails({ data }) {
+  const router = useRouter();
+  const { id } = router.query;
   const swiper = useSwiper();
   return (
     <>
